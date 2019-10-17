@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Rectangle id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#eedbdb" height="300.0" layoutX="50.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+      <Rectangle id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="50.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+      <Circle fill="WHITE" layoutX="200.0" layoutY="200.0" radius="150.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>
