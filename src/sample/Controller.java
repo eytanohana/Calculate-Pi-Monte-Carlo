@@ -60,9 +60,9 @@ public class Controller {
             Circle dot = new Circle(x, y, 2);
             if (pointInCircle(x, y)) {
                 dotsInCircle++;
-                dot.setFill(Paint.valueOf("blue"));
+                dot.setFill(Paint.valueOf("#2f416d"));
             } else {
-                dot.setFill(Paint.valueOf("red"));
+                dot.setFill(Paint.valueOf("#f0134d"));
             }
             totalDots++;
             dots.add(dot);

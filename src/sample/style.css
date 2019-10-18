@@ -1,0 +1,12 @@
+#anchorPane {
+    -fx-background-color: #3c4245;
+}
+
+Button {
+    -fx-background-color: #5f6769;
+    -fx-text-fill: #fff;
+}
+
+Button:hover {
+    -fx-background-color: #272121;
+}
