@@ -13,6 +13,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
+import java.util.Map;
 import java.util.Random;
 
 public class Controller {
@@ -36,38 +37,52 @@ public class Controller {
     private double rightRectBound;
     private double topRectBound;
     private double bottomRectBound;
+    private double dotsInCircle;
+    private double totalDots;
 
     public void initialize() {
         random = new Random();
+
         leftRectBound = rectangle.getLayoutX();
         rightRectBound = leftRectBound + rectangle.getWidth();
         topRectBound = rectangle.getLayoutY();
         bottomRectBound = topRectBound + rectangle.getHeight();
-        System.out.println(leftRectBound);
-        System.out.println(rightRectBound);
-        System.out.println(topRectBound);
-        System.out.println(bottomRectBound);
-        go = false;
 
-        timeline = new Timeline(new KeyFrame(Duration.ZERO, event1 -> {
+        go = false;
+        dotsInCircle = 0;
+        totalDots = 0;
+
+        btn.setText("Start");
+
+        timeline = new Timeline(new KeyFrame(Duration.ZERO, event -> {
             int x = (int) (Math.abs(random.nextInt()) % (rightRectBound - leftRectBound) + leftRectBound);
             int y = (int) (Math.abs(random.nextInt()) % (bottomRectBound - topRectBound) + topRectBound);
-
+            if (inCircle(x, y)) {
+                dotsInCircle++;
+            }
+            totalDots++;
             anchorPane.getChildren().add(new Circle(x, y, 3));
-        }), new KeyFrame(Duration.millis(100)));
+            piLabel.setText(String.format("%.9f", 4 * dotsInCircle / totalDots));
+        }), new KeyFrame(Duration.millis(10)));
 
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
 
-    //    int x = (int) (Math.abs(random.nextInt()) % (rightRectBound - leftRectBound) + leftRectBound);
-//    int y = (int) (Math.abs(random.nextInt()) % (bottomRectBound - topRectBound) + topRectBound);
-    public void onClick(ActionEvent event) throws InterruptedException {
+
+    public void onClick(ActionEvent event) {
         if (!go) {
+            btn.setText("Stop");
             go = true;
             timeline.play();
         } else {
+            btn.setText("Start");
             go = false;
             timeline.pause();
         }
+    }
+
+
+    private boolean inCircle(double x, double y) {
+        return Math.pow(x - 200, 2) + Math.pow(y - 200, 2) < Math.pow(150, 2);
     }
 }
