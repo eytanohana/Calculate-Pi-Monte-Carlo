@@ -19,15 +19,11 @@ public class Controller {
     @FXML
     private Button startStopBtn;
     @FXML
-    private Button resetBtn;
-    @FXML
     private AnchorPane anchorPane;
     @FXML
     private Label piLabel;
     @FXML
     private Rectangle rectangle;
-    @FXML
-    private Circle circle;
 
 
     private Timeline timeline;
