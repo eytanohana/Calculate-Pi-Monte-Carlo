@@ -11,37 +11,37 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-
 import java.util.LinkedList;
 import java.util.Random;
 
 public class Controller {
     @FXML
-    private Button startStopBtn;
-    @FXML
     private AnchorPane anchorPane;
     @FXML
     private Label piLabel;
     @FXML
+    private Button startStopBtn;
+    @FXML
     private Rectangle rectangle;
 
-
+    private LinkedList<Circle> dots;
     private Timeline timeline;
     private Random random;
-    private boolean go;
 
     private double leftRectBound;
     private double rightRectBound;
     private double topRectBound;
     private double bottomRectBound;
+
     private double dotsInCircle;
     private double totalDots;
-    private LinkedList<Circle> dots;
+
+    private boolean go;
 
 
     public void initialize() {
-        random = new Random();
         dots = new LinkedList<>();
+        random = new Random();
 
         leftRectBound = rectangle.getLayoutX();
         rightRectBound = leftRectBound + rectangle.getWidth();
@@ -51,8 +51,6 @@ public class Controller {
         go = false;
         dotsInCircle = 0;
         totalDots = 0;
-
-        startStopBtn.setText("Start");
 
         timeline = new Timeline(new KeyFrame(Duration.ZERO, event -> {
             int x = (int) (Math.abs(random.nextInt()) % (rightRectBound - leftRectBound) + leftRectBound);
@@ -73,15 +71,7 @@ public class Controller {
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
 
-
-    private boolean pointInCircle(double x, double y) {
-        return Math.pow(x - 200, 2) + Math.pow(y - 200, 2) < Math.pow(150, 2);
-    }
-
-    private double convert(double x) {
-        return -9.95 * x + 1000;
-    }
-
+    @FXML
     public void onClickStartStop(ActionEvent event) {
         if (!go) {
             startStopBtn.setText("Stop");
@@ -94,6 +84,7 @@ public class Controller {
         }
     }
 
+    @FXML
     public void onClickReset(ActionEvent event) {
         timeline.pause();
         startStopBtn.setText("Start");
@@ -102,5 +93,9 @@ public class Controller {
         dotsInCircle = 0;
         piLabel.setText("");
         anchorPane.getChildren().removeAll(dots);
+    }
+
+    private boolean pointInCircle(double x, double y) {
+        return Math.pow(x - 200, 2) + Math.pow(y - 200, 2) < Math.pow(150, 2);
     }
 }

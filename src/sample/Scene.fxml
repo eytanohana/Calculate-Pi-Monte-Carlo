@@ -22,6 +22,6 @@
          </font>
       </Label>
       <Button fx:id="startStopBtn" layoutX="283.0" layoutY="359.0" mnemonicParsing="false" onAction="#onClickStartStop" prefHeight="27.0" prefWidth="67.0" text="Start" />
-      <Button fx:id="resetBtn" layoutX="200.0" layoutY="359.0" mnemonicParsing="false" onAction="#onClickReset" prefHeight="27.0" prefWidth="67.0" text="Reset" />
+      <Button layoutX="200.0" layoutY="359.0" mnemonicParsing="false" onAction="#onClickReset" prefHeight="27.0" prefWidth="67.0" text="Reset" />
    </children>
 </AnchorPane>
