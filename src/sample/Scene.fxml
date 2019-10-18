@@ -9,18 +9,19 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Rectangle id="rectangle" fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="50.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
-      <Circle fx:id="circle" fill="WHITE" layoutX="200.0" layoutY="200.0" radius="150.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label layoutX="23.0" layoutY="14.0" text="The calculated value of PI is:">
+      <Rectangle id="rectangle" fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="50.0" layoutY="50.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" width="300.0" />
+      <Circle fx:id="circle" fill="WHITE" layoutX="200.0" layoutY="200.0" radius="150.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Label layoutX="34.0" layoutY="14.0" text="The calculated value of PI is:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="piLabel" layoutX="246.0" layoutY="14.0">
+      <Label fx:id="piLabel" layoutX="259.0" layoutY="14.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btn" layoutX="291.0" layoutY="359.0" mnemonicParsing="false" onAction="#onClick" text="Button" />
+      <Button fx:id="startStopBtn" layoutX="283.0" layoutY="359.0" mnemonicParsing="false" onAction="#onClickStartStop" prefHeight="27.0" prefWidth="67.0" text="Start" />
+      <Button fx:id="resetBtn" layoutX="200.0" layoutY="359.0" mnemonicParsing="false" onAction="#onClickReset" prefHeight="27.0" prefWidth="67.0" text="Reset" />
    </children>
 </AnchorPane>
