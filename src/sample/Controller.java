@@ -74,12 +74,12 @@ public class Controller {
     @FXML
     public void onClickStartStop(ActionEvent event) {
         if (!go) {
-            startStopBtn.setText("Stop");
             go = true;
+            startStopBtn.setText("Stop");
             timeline.play();
         } else {
-            startStopBtn.setText("Start");
             go = false;
+            startStopBtn.setText("Start");
             timeline.pause();
         }
     }
