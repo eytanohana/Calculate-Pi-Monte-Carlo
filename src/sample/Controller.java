@@ -72,7 +72,7 @@ public class Controller {
     }
 
     @FXML
-    public void onClickStartStop(ActionEvent event) {
+    public void onClickStartStop() {
         if (!go) {
             go = true;
             startStopBtn.setText("Stop");
@@ -85,17 +85,18 @@ public class Controller {
     }
 
     @FXML
-    public void onClickReset(ActionEvent event) {
-        timeline.pause();
+    public void onClickReset() {
+        timeline.stop();
         startStopBtn.setText("Start");
         go = false;
         totalDots = 0;
         dotsInCircle = 0;
         piLabel.setText("");
         anchorPane.getChildren().removeAll(dots);
+        dots.clear();
     }
 
     private boolean pointInCircle(double x, double y) {
-        return Math.pow(x - 200, 2) + Math.pow(y - 200, 2) < Math.pow(150, 2);
+        return Math.pow(x - 200, 2) + Math.pow(y - 200, 2) < 22_500;
     }
 }
