@@ -1,9 +1,8 @@
 package sample;
 
+import javafx.fxml.FXML;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -96,7 +95,13 @@ public class Controller {
         dots.clear();
     }
 
+    /**
+     * @param x - The x-coordinate of the point.
+     * @param y - The y-coordinate of the point.
+     * @return - Whether the point falls in the circle or not.
+     */
     private boolean pointInCircle(double x, double y) {
+        // The circle is centered at (200, 200) in the pane with a radius of 150.
         return Math.pow(x - 200, 2) + Math.pow(y - 200, 2) < 22_500;
     }
 }
